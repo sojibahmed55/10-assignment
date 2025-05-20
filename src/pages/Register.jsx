@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 
+
 const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,29 +16,25 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userProfile),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Your work has been saved",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
-          });
+        
+        Swal.fire({
+           icon: 'success',
+          title: 'Registration Successful!',
+          text: 'You have successfully registered 🎉',
+          timer: 2000,
+          showConfirmButton: false,
+          
+        });
       })
       .catch((error) => {
         console.log(error);
+        // Error alert
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message || 'Something went wrong!',
+          
+        });
       });
   };
 
