@@ -1,8 +1,10 @@
+
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
+import { updateProfile } from "firebase/auth"; 
 
 const Register = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -12,22 +14,28 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const { email, password, ...userProfile } = Object.fromEntries(
-      formData.entries()
-    );
+    const { email, password, name, photo } = Object.fromEntries(formData.entries());
 
-    createUser(email, password, userProfile)
+    createUser(email, password)
       .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          icon: "success",
-          title: "Registration Successful!",
-          text: "You have successfully registered 🎉",
-          timer: 2000,
-          showConfirmButton: false,
-          timerProgressBar: true,
-        });
-        navigate("/");
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Registration Successful!",
+              text: "You have successfully registered 🎉",
+              timer: 2000,
+              showConfirmButton: false,
+              timerProgressBar: true,
+            });
+            navigate("/");
+          })
+          .catch((err) => {
+            console.log("Profile update error:", err);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +50,6 @@ const Register = () => {
   const handleGoogleRegister = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
         Swal.fire({
           icon: "success",
           title: "Google Sign-In Successful!",
