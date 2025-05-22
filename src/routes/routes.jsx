@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Roommate from "../pages/Roommate";
 import RoommateDetails from "../components/RoommateDetails";
+import MyListings from "../components/MyListings";
 
 
 
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:5000/roommates'),
+        loader: () => fetch("http://localhost:5000/roommates?limit=6"),
         Component: Home,
       },
       {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: '/roommate-details/:id',
         loader: ({params}) => fetch(`http://localhost:5000/roommates/${params.id}`),
         Component: RoommateDetails,
+      },
+      {
+        path: 'my-listings',
+        Component: MyListings
       }
       
     ],

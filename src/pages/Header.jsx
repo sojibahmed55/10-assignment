@@ -37,7 +37,6 @@ const Header = () => {
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-[1600px] mx-auto navbar px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
         <div className="flex items-center gap-2">
           <img
             src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png"
