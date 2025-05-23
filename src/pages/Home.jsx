@@ -5,7 +5,7 @@ import RoommateCard from "../components/RoommateCard";
 
 const Home = () => {
   const roommateData = useLoaderData();
-  console.log("Fetched Roommates:", roommateData);
+  console.log("Fetched Roommates", roommateData);
 
   const availableRoommates = roommateData.filter(
     (item) => item.availability?.toLowerCase() === "available"

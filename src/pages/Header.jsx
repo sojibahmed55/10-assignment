@@ -54,7 +54,7 @@ const Header = () => {
             Roommate
             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </Link>
-          <Link to="/listings" className="hover:text-blue-600 transition duration-300 relative group">
+          <Link to="/browse-listings" className="hover:text-blue-600 transition duration-300 relative group">
             Browse Listing
             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </Link>
