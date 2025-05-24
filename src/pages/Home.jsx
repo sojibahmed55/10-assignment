@@ -2,6 +2,8 @@ import React from "react";
 import SimpleSlider from "./SimpleSlider";
 import { useLoaderData } from "react-router";
 import RoommateCard from "../components/RoommateCard";
+import RoomatesSection from "./RoomatesSection";
+import SecondRomSec from "./SecondRomSec";
 
 const Home = () => {
   const roommateData = useLoaderData();
@@ -29,6 +31,10 @@ const Home = () => {
           ) : (
             <p className="text-center text-gray-500">No available roommates found.</p>
           )}
+        </div>
+        <RoomatesSection/>
+        <div className="my-8">
+          <SecondRomSec/>
         </div>
       </div>
     </>
