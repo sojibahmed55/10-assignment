@@ -73,14 +73,14 @@ const Login = () => {
             name="email"
             placeholder="Email address"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-md"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md text-black"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-md text-"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md text-black"
           />
           <button
             type="submit"

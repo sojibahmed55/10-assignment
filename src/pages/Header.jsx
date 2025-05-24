@@ -85,12 +85,14 @@ const Header = () => {
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   ></span>
+                  
                 </span>
+                
               )}
             </NavLink>
+            
           ))}
-        </nav>
-        <div>
+          <div>
           <label className="swap swap-rotate">
             <input
               type="checkbox"
@@ -108,6 +110,8 @@ const Header = () => {
             className="toggle theme-controller"
           />
         </div>
+        </nav>
+        
 
         <div className="hidden md:block">
           {user ? (

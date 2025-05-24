@@ -29,9 +29,7 @@ const SecondRomSec = () => {
                   <span className="text-lg font-bold text-indigo-700">
                     $8,000/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -55,9 +53,7 @@ const SecondRomSec = () => {
                   <span className="text-lg font-bold text-indigo-700">
                     $9,500/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -81,9 +77,7 @@ const SecondRomSec = () => {
                   <span className="text-lg font-bold text-indigo-700">
                     $7,000/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -107,9 +101,7 @@ const SecondRomSec = () => {
                   <span className="text-lg font-bold text-indigo-700">
                     $10,000/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -133,9 +125,7 @@ const SecondRomSec = () => {
                   <span className="text-lg font-bold text-indigo-700">
                     $6,500/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -157,11 +147,9 @@ const SecondRomSec = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-bold text-indigo-700">
-                    ৳11,000/mo
+                    $11,000/mo
                   </span>
-                  <button className="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full font-semibold">
-                    View Profile
-                  </button>
+                  
                 </div>
               </div>
             </div>

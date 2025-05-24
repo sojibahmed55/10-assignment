@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
 
