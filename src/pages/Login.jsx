@@ -61,7 +61,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center  px-4">
       <div className="w-full max-w-[500px] bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
           Login to Your Account
@@ -80,7 +80,7 @@ const Login = () => {
             name="password"
             placeholder="Password"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-md"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md text-"
           />
           <button
             type="submit"

@@ -71,7 +71,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-[500px] bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
           Create an Account
@@ -82,28 +82,28 @@ const Register = () => {
             name="name"
             placeholder="Full Name"
             required
-            className="w-full px-4 py-3 border rounded-md"
+            className="w-full px-4 py-3 border rounded-md text-black"
           />
           <input
             type="text"
             name="photo"
             placeholder="Photo URL"
             required
-            className="w-full px-4 py-3 border rounded-md"
+            className="w-full px-4 py-3 border rounded-md text-black"
           />
           <input
             type="email"
             name="email"
             placeholder="Email address"
             required
-            className="w-full px-4 py-3 border rounded-md"
+            className="w-full px-4 py-3 border rounded-md text-black"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             required
-            className="w-full px-4 py-3 border rounded-md"
+            className="w-full px-4 py-3 border rounded-md text-black"
           />
           <button
             type="submit"
