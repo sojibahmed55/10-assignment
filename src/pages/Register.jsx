@@ -1,10 +1,10 @@
 
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router"; 
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
-import { updateProfile } from "firebase/auth"; 
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -15,6 +15,19 @@ const Register = () => {
     const form = e.target;
     const formData = new FormData(form);
     const { email, password, name, photo } = Object.fromEntries(formData.entries());
+    const errors = [];
+    if (password.length < 6) errors.push("At least 6 characters.");
+    if (!/[A-Z]/.test(password)) errors.push("One uppercase letter.");
+    if (!/[a-z]/.test(password)) errors.push("One lowercase letter.");
+
+    if (errors.length > 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Weak Password",
+        html: errors.join("<br/>"),
+      });
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -25,20 +38,17 @@ const Register = () => {
           .then(() => {
             Swal.fire({
               icon: "success",
-              title: "Registration Successful!",
-              text: "You have successfully registered 🎉",
+              title: "Welcome!",
+              text: "Your account is ready create successfully",
               timer: 2000,
               showConfirmButton: false,
               timerProgressBar: true,
             });
             navigate("/");
           })
-          .catch((err) => {
-            console.log("Profile update error:", err);
-          });
+          .catch((err) => console.log("Profile update error:", err));
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -52,7 +62,7 @@ const Register = () => {
       .then((result) => {
         Swal.fire({
           icon: "success",
-          title: "Google Sign-In Successful!",
+          title: "Signed in with Google!",
           text: `Welcome, ${result.user.displayName}! 🎉`,
           timer: 2000,
           showConfirmButton: false,
@@ -61,7 +71,6 @@ const Register = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire({
           icon: "error",
           title: "Google Sign-In Failed!",
@@ -71,7 +80,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-100">
       <div className="w-full max-w-[500px] bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
           Create an Account

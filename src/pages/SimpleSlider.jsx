@@ -74,7 +74,6 @@ const SimpleSlider = () => {
         ))}
       </Slider>
 
-      {/* Left Arrow */}
       <button
         onClick={() => sliderRef.current.slickPrev()}
         className="absolute top-1/2 left-4 sm:left-6 md:left-8 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md z-20 transition"
@@ -83,7 +82,6 @@ const SimpleSlider = () => {
         <ChevronLeft size={30} />
       </button>
 
-      {/* Right Arrow */}
       <button
         onClick={() => sliderRef.current.slickNext()}
         className="absolute top-1/2 right-4 sm:right-6 md:right-8 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md z-20 transition"

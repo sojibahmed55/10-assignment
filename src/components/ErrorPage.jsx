@@ -8,14 +8,13 @@ const ErrorPage = () => {
       {/* Left side - Image */}
       <div className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
         <img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+          src="https://i.ibb.co/SD1Y3k57/notfound.jpg"
           alt="Error Illustration"
           className="max-w-md rounded-3xl shadow-2xl"
           loading="lazy"
         />
       </div>
 
-      {/* Right side - Text */}
       <div className="w-full md:w-1/2 max-w-lg text-center md:text-left">
         <h1 className="text-[12rem] font-extrabold leading-none drop-shadow-lg">404</h1>
         <h2 className="text-5xl font-bold mb-4 drop-shadow-md">Page Not Found</h2>

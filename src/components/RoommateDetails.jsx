@@ -281,15 +281,15 @@ const RoommateDetails = ({ currentUser }) => {
       <h2 className="text-3xl font-bold text-indigo-700 mb-4">
         {likeCount} {likeCount === 1 ? "person is" : "people are"}  
       </h2>
-      <p>{roommate.title}</p>
+      <p className="text-black">{roommate.title}</p>
 
-      <p className="mb-3">
+      <p className="mb-3 text-black">
         <strong>Location:</strong> {roommate.location}
       </p>
-      <p className="mb-3">
+      <p className="mb-3 text-black">
         <strong>Room Type:</strong> {roommate.roomType}
       </p>
-      <p className="mb-3">
+      <p className="mb-3 text-black">
         <strong>Description:</strong> {roommate.description}
       </p>
 
@@ -301,7 +301,7 @@ const RoommateDetails = ({ currentUser }) => {
       </button>
 
       {showContact && (
-        <p className="mt-4 text-green-700 font-semibold">
+        <p className="mt-4 text-green-700 font-semibold ">
           📞 Contact Number: {contactInfo}
         </p>
       )}
