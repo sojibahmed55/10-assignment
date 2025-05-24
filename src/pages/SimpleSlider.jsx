@@ -23,17 +23,17 @@ const SimpleSlider = () => {
 
   const slides = [
   {
-    img: "https://i.ibb.co/tTtXqg3F/happy-friends-enjoying-drinking-juice-kitchen.jpg",
+    img: "https://i.ibb.co/35Zq3NzM/collegeroommates-58d14bd65f9b581d7243490e.jpg",
     title: "Cozy Rooms, Friendly Vibes",
     desc: "Find your perfect roommate and a comfy space to call home.",
   },
   {
-    img: "https://i.ibb.co/W467j4PL/football-fans-living-room.jpg",
+    img: "https://i.ibb.co/5WsM1KL8/gettyimages-1367813999.jpg",
     title: "Location Matters",
     desc: "Browse listings based on your preferred neighborhood and budget.",
   },
   {
-    img: "https://i.ibb.co/8DkWQYkd/thoughtful-young-couple-sitting-bed-looking-laptop.jpg",
+    img: "https://i.ibb.co/fzXqgpJG/Roommates-Males.jpg",
     title: "Connect & Move In",
     desc: "Chat with roommates, schedule visits, and settle in hassle-free.",
   },
