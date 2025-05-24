@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 const ErrorPage = () => {
     return (
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-tr from-blue-900 via-purple-900 to-pink-900 px-8 py-16 text-white">
-      
-
       <div className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
         <img
           src="https://i.ibb.co/SD1Y3k57/notfound.jpg"

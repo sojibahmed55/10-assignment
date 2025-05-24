@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:5000/roommates?limit=6"),
+        loader: () => fetch("https://10th-assignment-server-opal.vercel.app/roommates?limit=6"),
         Component: Home,
       },
       {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/roommate-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roommates/${params.id}`),
+          fetch(`https://10th-assignment-server-opal.vercel.app/roommates/${params.id}`),
         element: (
           <PrivateRoute>
             <RoommateDetails currentUser={{ email: "user@example.com" }} />
@@ -57,13 +57,13 @@ const router = createBrowserRouter([
 
       {
         path: "/browse-listings",
-        loader: () => fetch("http://localhost:5000/roommates"),
+        loader: () => fetch("https://10th-assignment-server-opal.vercel.app/roommates"),
         Component: BrowseListing,
       },
       {
         path: "/all-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roommates/${params.id}`),
+          fetch(`https://10th-assignment-server-opal.vercel.app/roommates/${params.id}`),
         element: (
           <PrivateRoute>
             <AllDetails />
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/roommate-update/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/roommates/${params.id}`),
+        loader: ({params}) => fetch(`https://10th-assignment-server-opal.vercel.app/roommates/${params.id}`),
         Component: RoommateUpdate,
       },
       {

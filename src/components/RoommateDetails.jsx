@@ -15,7 +15,7 @@ const RoommateDetails = ({ currentUser }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/roommates/${id}`)
+      .get(`https://10th-assignment-server-opal.vercel.app/roommates/${id}`)
       .then((res) => {
         setRoommate(res.data);
         setLikeCount(res.data.likes || 0);
@@ -39,7 +39,7 @@ const RoommateDetails = ({ currentUser }) => {
     }
 
     try {
-      const res = await axios.patch(`http://localhost:5000/roommates/${id}/like`, {
+      const res = await axios.patch(`https://10th-assignment-server-opal.vercel.app/roommates/${id}/like`, {
         currentUserEmail: currentUser.email,
       });
 

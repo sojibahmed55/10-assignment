@@ -24,7 +24,7 @@ const RoommateUpdate = () => {
     const updatedRommate = Object.fromEntries(roommateData.entries());
     console.log(updatedRommate);
 
-    fetch(`http://localhost:5000/roommates/${_id}`, {
+    fetch(`https://10th-assignment-server-opal.vercel.app/roommates/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

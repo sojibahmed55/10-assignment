@@ -8,7 +8,7 @@ const BrowseListing = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/roommates")
+      .get("https://10th-assignment-server-opal.vercel.app/roommates")
       .then((res) => setRoommates(res.data))
       .catch((err) => console.error("Error loading roommates", err));
   }, []);
