@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
@@ -11,28 +11,27 @@ const Header = () => {
   const { user } = useContext(AuthContext);
 
   const handleLogout = () => {
-  signOut(auth)
-    .then(() => {
-      Swal.fire({
-        title: "Logged out!",
-        text: "You have been successfully logged out.",
-        icon: "success",
-        timer: 2000,
-        showConfirmButton: false,
-        timerProgressBar: true,
-        
+    signOut(auth)
+      .then(() => {
+        Swal.fire({
+          title: "Logged out!",
+          text: "You have been successfully logged out.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true,
+        });
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to log out. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
-    })
-    .catch((error) => {
-      console.error("Logout error:", error);
-      Swal.fire({
-        title: "Error!",
-        text: "Failed to log out. Please try again.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    });
-};
+  };
 
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
@@ -45,7 +44,7 @@ const Header = () => {
           />
           <span className="text-2xl font-bold text-blue-700">RoomieFind</span>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
+        {/* <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
           <Link to="/" className="hover:text-blue-600 transition duration-300 relative group">
             Home
             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
@@ -62,6 +61,72 @@ const Header = () => {
             My Listings
             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </Link>
+        </div> */}
+
+        <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
+          <NavLink
+            to="/"
+            className="relative group transition duration-300 hover:text-blue-600"
+          >
+            {({ isActive }) => (
+              <span>
+                Home
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-blue-600 transition-all ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
+            to="/roommate"
+            className="relative group transition duration-300 hover:text-blue-600"
+          >
+            {({ isActive }) => (
+              <span>
+                Roommate
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-blue-600 transition-all ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
+            to="/browse-listings"
+            className="relative group transition duration-300 hover:text-blue-600"
+          >
+            {({ isActive }) => (
+              <span>
+                Browse Listing
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-blue-600 transition-all ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
+            to="/my-listings"
+            className="relative group transition duration-300 hover:text-blue-600"
+          >
+            {({ isActive }) => (
+              <span>
+                My Listings
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-blue-600 transition-all ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </span>
+            )}
+          </NavLink>
         </div>
 
         <div className="space-x-2 relative">
@@ -87,10 +152,14 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="btn btn-outline btn-primary px-6">Login</button>
+                <button className="btn btn-outline btn-primary px-6">
+                  Login
+                </button>
               </Link>
               <Link to="/register">
-                <button className="btn btn-outline btn-primary px-6">Register</button>
+                <button className="btn btn-outline btn-primary px-6">
+                  Register
+                </button>
               </Link>
             </>
           )}
@@ -101,4 +170,3 @@ const Header = () => {
 };
 
 export default Header;
-

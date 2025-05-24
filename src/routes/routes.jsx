@@ -3,12 +3,14 @@ import Mainlayout from "../layout/Mainlayout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Roommate from "../pages/Roommate";
 import RoommateDetails from "../components/RoommateDetails";
 import MyListings from "../components/MyListings";
 import BrowseListing from "../components/BrowseListing";
 import AllDetails from "../components/AllDetails";
 import PrivateRoute from "../Private/PrivateRoute";
+import Roommate from "../pages/Roommate";
+import RoommateUpdate from "../components/RoommateUpdate";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -30,19 +32,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/roommate",
-        Component: Roommate,
+        element: (
+          <PrivateRoute>
+            <Roommate />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/roommate-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roommates/${params.id}`),
-        Component: RoommateDetails,
+        element: (
+          <PrivateRoute>
+            <RoommateDetails currentUser={{ email: "user@example.com" }} />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-listings",
-        Component: MyListings,
+        element: <PrivateRoute>
+          <MyListings/>
+        </PrivateRoute>,
       },
-      
+
       {
         path: "/browse-listings",
         loader: () => fetch("http://localhost:5000/roommates"),
@@ -52,11 +64,21 @@ const router = createBrowserRouter([
         path: "/all-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roommates/${params.id}`),
-        element:
-        <PrivateRoute>
-          <AllDetails/>
-        </PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <AllDetails />
+          </PrivateRoute>
+        ),
       },
+      {
+        path: '/roommate-update/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/roommates/${params.id}`),
+        Component: RoommateUpdate,
+      },
+      {
+        path: '*',
+        Component: ErrorPage,
+      }
     ],
   },
 ]);

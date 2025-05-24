@@ -1,25 +1,26 @@
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import { Link } from "react-router";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [listings, setListings] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user?.email) return;
 
     fetch(`http://localhost:5000/roommates?email=${user.email}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setListings(data);
       });
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this listing?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
     if (!confirmDelete) return;
 
     fetch(`http://localhost:5000/roommates/${id}`, {
@@ -32,10 +33,6 @@ const MyListings = () => {
           setListings((prev) => prev.filter((item) => item._id !== id));
         }
       });
-  };
-
-  const handleUpdate = (id) => {
-    navigate(`/update-listing/${id}`);
   };
 
   return (
@@ -61,15 +58,14 @@ const MyListings = () => {
                 <tr key={item._id} className="hover:bg-gray-50">
                   <td>{item.title}</td>
                   <td>{item.location}</td>
-                  <td>{item.rent} BDT</td>
-                  <td>{item.phone}</td>
+                  <td>{item.rent}BDT</td>
+                  <td>{item.contactInfo}</td>
                   <td className="space-x-2">
-                    <button
-                      onClick={() => handleUpdate(item._id)}
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-                    >
-                      Update
-                    </button>
+                    <Link to={`/roommate-update/${item._id}`}>
+                      <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                        Update
+                      </button>
+                    </Link>
                     <button
                       onClick={() => handleDelete(item._id)}
                       className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
