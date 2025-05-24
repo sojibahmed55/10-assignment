@@ -45,7 +45,7 @@ const MyListings = () => {
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
-              <tr className="bg-gray-100">
+              <tr>
                 <th>Title</th>
                 <th>Location</th>
                 <th>Rent</th>
@@ -55,7 +55,7 @@ const MyListings = () => {
             </thead>
             <tbody>
               {listings.map((item) => (
-                <tr key={item._id} className="hover:bg-gray-50">
+                <tr key={item._id}>
                   <td>{item.title}</td>
                   <td>{item.location}</td>
                   <td>{item.rent}BDT</td>
